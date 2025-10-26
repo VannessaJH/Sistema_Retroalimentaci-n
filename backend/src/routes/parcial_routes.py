@@ -38,8 +38,6 @@ async def agregar_preguntas(
     
     return resultado
         
-    
-
 @router.get("/{id_parcial}")
 async def obtener_parcial(id_parcial: int):
     return {
