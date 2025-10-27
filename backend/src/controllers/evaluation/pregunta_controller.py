@@ -12,7 +12,7 @@ class PreguntaController:
         
         try: 
             tema = db.query(Tema).filter(Tema.id_tema == datos_pregunta["id_tema"]).first()
-            rac = db.query(RAC).filter(RAC.id_rac == datos_pregunta["id_rac"]).first()  
+            rac = db.query(Rac).filter(Rac.id_rac == datos_pregunta["id_rac"]).first()  
             parcial = db.query(Parcial).filter(Parcial.id_parcial == datos_pregunta["id_parcial"]).first()
 
             if not tema:
