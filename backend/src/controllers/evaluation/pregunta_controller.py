@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from models.evaluation.pregunta import Pregunta
 from models.academic.tema import Tema
-from models.academic.rac import RAC
+from models.academic.rac import Rac
 from models.academic.parcial import Parcial
 import json
 
