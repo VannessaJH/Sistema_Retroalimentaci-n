@@ -17,7 +17,7 @@ npm-debug.log
 logs/
 
 # Ignora otras carpetas que no son necesarias para el backend
-# Docker solo necesita la carpeta 'backend'
+
 frontend/
 database/
 docs/
