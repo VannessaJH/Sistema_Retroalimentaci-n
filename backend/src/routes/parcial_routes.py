@@ -1,17 +1,19 @@
+
 from fastapi import APIRouter, UploadFile, File, Depends
+from services.ocr_service import procesar_imagen_ocr
 from config.database import get_db
 from sqlalchemy.orm import Session
 from controllers.academic.parcial_controller import ParcialController
 from controllers.evaluation.pregunta_controller import PreguntaController
-
 router = APIRouter(prefix="/api/parciales", tags=["Parciales"])
 
 @router.post("/procesar-ocr")
 async def procesar_examen_ocr(imagen: UploadFile = File(...)):
+    resultado = await procesar_imagen_ocr(imagen)
+    
     return {
-        "mensaje": "Imagen recibida para procesamiento OCR",
-        "archivo": imagen.filename,
-        "accion": "OCR en desarrollo - preguntas detectadas aparecerán aquí"
+        "mensaje": f"Procesamiento OCR finalizado para {imagen.filename}",
+        "data": resultado 
     }
 
 @router.post("/")
