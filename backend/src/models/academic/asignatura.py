@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from sqlalchemy.orm import relationship
-from src.config.database import Base 
+from config.database import Base 
 
 class Asignatura(Base):
     
