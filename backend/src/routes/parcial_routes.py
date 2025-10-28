@@ -1,13 +1,14 @@
 from fastapi import APIRouter, UploadFile, File
-
+from services.ocr_service import procesar_imagen_ocr
 router = APIRouter(prefix="/api/parciales", tags=["Parciales"])
 
 @router.post("/procesar-ocr")
 async def procesar_examen_ocr(imagen: UploadFile = File(...)):
+    resultado = await procesar_imagen_ocr(imagen)
+    
     return {
-        "mensaje": "Imagen recibida para procesamiento OCR",
-        "archivo": imagen.filename,
-        "accion": "OCR en desarrollo - preguntas detectadas aparecerán aquí"
+        "mensaje": f"Procesamiento OCR finalizado para {imagen.filename}",
+        "data": resultado # El diccionario devuelto por el servicio (con el texto extraído)
     }
 
 @router.post("/")

@@ -1,0 +1,23 @@
+# Ignora carpetas y archivos específicos del entorno local
+venv
+.venv
+__pycache__
+*.pyc
+*.pyo
+
+# Ignora archivos de configuración y control de versiones
+.git
+.gitignore
+.vscode
+.DS_Store
+
+# Ignora archivos de prueba o caché generados por librerías
+.pytest_cache
+npm-debug.log
+logs/
+
+# Ignora otras carpetas que no son necesarias para el backend
+# Docker solo necesita la carpeta 'backend'
+frontend/
+database/
+docs/
